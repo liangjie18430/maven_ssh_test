@@ -8,3 +8,7 @@ http://www.zuidaima.com/share/1775574182939648.htm
 
 Description	Resource	Path	Location	Type
 ArtifactDescriptorException: Failed to read artifact descriptor for org.apache.geronimo.specs:geronimo-jta_1.1_spec:jar:1.1.1: UnresolvableModelException: Failure to transfer org.apache.geronimo.genesis:genesis:pom:1.2 from http://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.geronimo.genesis:genesis:pom:1.2 from/to central (http://repo.maven.apache.org/maven2): connection timed out to http://repo.maven.apache.org/maven2/org/apache/geronimo/genesis/genesis/1.2/genesis-1.2.pom	pom.xml	/maven_ssh_test	line 1	Maven Dependency Problem
+
+eclipse下搭建SSH整合环境(Struts2+Spring+Hibernate+maven)
+
+http://my.oschina.net/sherwayne/blog/262474
