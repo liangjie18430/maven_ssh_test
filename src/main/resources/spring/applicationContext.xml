@@ -58,9 +58,7 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 	<bean id="testService" class="com.lj.mvn_ssh.service.impl.TestServiceImpl">
 		<property name="basicDao" ref="basicDao" />
 	</bean>
-	<bean name="person" class="com.lj.mvn_ssh.pojo.Student">
-		<property name="age" value="23" />
-	</bean>
+	
 	<!-- 下边这里是配置注解的方式 -->
 	<!-- <context:annotation-config /> <context:component-scan base-package="us.xuhang.project.ssh" 
 		/> <context:property-placeholder location="classpath:hibernate.properties"/> -->
@@ -81,6 +79,7 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
 			<tx:method name="delete*" propagation="REQUIRED" />
 			<tx:method name="update*" propagation="REQUIRED" />
 			<tx:method name="select*" propagation="REQUIRED" read-only="true" />
@@ -104,5 +103,5 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 		</aop:config> -->
 
 	<!-- 引入多个数据源文件 -->
-	<import resource="classpath:applicationContext-dataSources.xml" />
+	<import resource="classpath:spring/applicationContext-dataSources.xml" />
 </beans>

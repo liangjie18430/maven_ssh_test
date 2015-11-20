@@ -17,7 +17,7 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <!-- classpath就是class文件的路径   运行代码时jvm需要知道class文件的位置   -->
-    <param-value>classpath:applicationContext.xml</param-value>
+    <param-value>classpath:spring/applicationContext.xml</param-value>
   </context-param>
   <!--spring中的上下文监听器  -->
   <listener>
