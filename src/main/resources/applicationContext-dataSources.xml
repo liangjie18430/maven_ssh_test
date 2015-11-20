@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+	
+	<!-- 配置数据源 -->
+	<bean id="configBean"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:dataSource.properties"/>
+	</bean>
+	
+	
+	<bean id="dataSource_default" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<!-- Connection Info -->
+		<property name="driverClass" value="${DRIVER_NAME}" />
+		<property name="jdbcUrl" value="${DATABASE_URL_DEFAULT}" />
+		<property name="user" value="${DATABASE_USER}" />
+		<property name="password" value="${DATABASE_PASSWORD}" />
+		<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default:3 -->
+		<property name="initialPoolSize" value="${Initial_PoolSize}" />
+		<!--连接池中保留的最小连接数。 -->
+		<property name="minPoolSize" value="${Min_PoolSize}" />
+		<!--连接池中保留的最大连接数。 Default:15 -->
+		<property name="maxPoolSize" value="${Max_PoolSize}" />
+		<!--最大空闲时间，60秒内未使用则连接被丢弃。若为0则永不丢弃。Default:0 -->
+		<property name="maxIdleTime" value="${Max_IdleTime}" />
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default:3 -->
+		<property name="acquireIncrement" value="${Acquire_Increment}" />
+		<!--每60秒检查所有连接池中的空闲连接。Default:0 -->
+		<property name="idleConnectionTestPeriod" value="${Idle_Test_Period}" />
+		
+	</bean>
+	<bean id="dataSource_1" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<!-- Connection Info -->
+		<property name="driverClass" value="${DRIVER_NAME}" />
+		<property name="jdbcUrl" value="${DATABASE_URL_DEFAULT}" />
+		<property name="user" value="${DATABASE_USER}" />
+		<property name="password" value="${DATABASE_PASSWORD}" />
+		<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default:3 -->
+		<property name="initialPoolSize" value="${Initial_PoolSize}" />
+		<!--连接池中保留的最小连接数。 -->
+		<property name="minPoolSize" value="${Min_PoolSize}" />
+		<!--连接池中保留的最大连接数。 Default:15 -->
+		<property name="maxPoolSize" value="${Max_PoolSize}" />
+		<!--最大空闲时间，60秒内未使用则连接被丢弃。若为0则永不丢弃。Default:0 -->
+		<property name="maxIdleTime" value="${Max_IdleTime}" />
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default:3 -->
+		<property name="acquireIncrement" value="${Acquire_Increment}" />
+		<!--每60秒检查所有连接池中的空闲连接。Default:0 -->
+		<property name="idleConnectionTestPeriod" value="${Idle_Test_Period}" />
+		
+	</bean>
+	
+	<!-- 使用如下方式可以配置多个数据源 -->
+	<bean id="dynamicDataSource" class="com.lj.mvn_ssh.dao.DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<!-- key的值也可以使字符串 -->
+				<entry key="default" value-ref="dataSource_default" />
+				<entry key="1" value-ref="dataSource_1" />
+				
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSource_default" />
+	</bean>
+</beans>
