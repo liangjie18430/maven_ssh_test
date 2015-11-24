@@ -12,53 +12,12 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 
-	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> 
-		<property name="configLocation" value="classpath:hibernate.cfg.xml"> </property> 
-		</bean> -->
-	<!-- 配置会话工厂 -->
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-		<!-- 设置数据源 -->
-		<property name="dataSource" ref="dynamicDataSource" />
-		<!-- 接管了hibernate对象映射文件 -->
-		<!-- <property name="mappingResources"> <list> <value>com/lj/mvn_ssh/pojo/Student.hbm.xml</value> 
-			</list> </property> -->
-		<!-- 自动扫描注解方式配置的hibernate类文件 -->
-		<property name="packagesToScan">
-			<list>
-				<value>com.lj.mvn_ssh.pojo</value>
-			</list>
-		</property>
-
-		<!--指定hibernate的属性值 -->
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.format_sql">true</prop>
-				<prop key="javax.persistence.validation.mode">none</prop>
-				<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
-			</props>
-		</property>
-
-
-	</bean>
-
-	<bean id="basicDao" class="com.lj.mvn_ssh.dao.impl.BasicDaoImpl"
-		scope="singleton">
+	<bean id="basicDao" class="com.lj.mvn_ssh.dao.impl.BasicDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-
-
-
-
-
-	<bean id="testService" class="com.lj.mvn_ssh.service.impl.TestServiceImpl">
-		<property name="basicDao" ref="basicDao" />
-	</bean>
 	
+
 	<!-- 下边这里是配置注解的方式 -->
 	<!-- <context:annotation-config /> <context:component-scan base-package="us.xuhang.project.ssh" 
 		/> <context:property-placeholder location="classpath:hibernate.properties"/> -->
@@ -88,9 +47,15 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 	</tx:advice>
 
 	<!-- AOP配置 -->
-	<!-- <aop:config> 对满足下面表达式的(业务逻辑层)方法实施事务 <aop:pointcut id="txPointcut" expression="execution(* 
-		us.xuhang.project.service.*.*(..))" /> 引用上面的事务策略txAdvice <aop:advisor advice-ref="txAdvice" 
-		pointcut-ref="txPointcut" /> </aop:config> -->
+	<aop:config>
+		<!-- 对满足下面表达式的(业务逻辑层)方法实施事务 -->
+		<!-- 定义在service包或者子包里的任意方法的执行 -->
+		<aop:pointcut id="txPointcut"
+			expression="execution(* 
+		com.lj.mvn_ssh.service..*.*(..))" />
+		<!-- 引用上面的事务策略txAdvice -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+	</aop:config>
 
 	<!-- 声明日志记录通知 -->
 	<!-- <bean id="logInterceptor" class="us.xuhang.project.interceptor.LogInterceptor"></bean> -->
@@ -104,4 +69,6 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<!-- 引入多个数据源文件 -->
 	<import resource="classpath:spring/applicationContext-dataSources.xml" />
+	<!-- 引入其他bean文件 -->
+	<import resource="classpath:spring/applicationContext-test.xml" />
 </beans>

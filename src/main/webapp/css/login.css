@@ -1,0 +1,289 @@
+body{
+	padding:0px;
+	margin:0px;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+.Body_Content{
+	overflow:hidden;
+	background-color:#1D3647;
+	display:none;
+}
+.background{
+	position:absolute;
+	z-index:1;
+	float:left;
+	left:0px;
+	top:41px;
+	border:none;
+}
+.top_Div {
+	background-image: url(../images/login-top-bg.gif);
+	background-repeat: repeat-x;
+	height:41px;
+	width:100%;
+}
+.bottom_Div{
+	background-image: url(../images/login-bottom-bg.gif);
+	background-repeat: repeat-x;
+	height:14px;
+	width:100%;
+	text-align:center;
+	z-index:2;
+}
+.center_Div{
+	width:100%;
+}
+.bottom_Div_txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #ABCAD3;
+	text-decoration: none;
+	line-height: 16px;
+	width:600px;
+	display:block;
+	margin:0 auto;
+}
+.welcome{
+	position:absolute;
+	float:right;
+	right:50px;
+	bottom:50px;
+}
+.left{
+	width:50%;
+	float:left;	
+}
+.left_mask{
+	position:absolute;
+	z-index:9999;
+	float:left;
+	left:0px;
+	top:41px;
+}
+.left_content_bg{
+	position:absolute;
+	z-index:2;
+	float:left;
+	left:0px;
+	width:400px;
+}
+.left_content{
+	width:400px;
+	position:relative;
+	z-index:9999;
+	float:right;
+	right:0px;
+}
+.left_div{
+	width:400px;
+	position:relative;
+	top:0px;
+	height:350px;
+	z-index:3;
+}
+#logologin{
+	position:relative;
+	float:right;
+	right:50px;
+}
+.left_div a{
+	margin-right:15px;
+	cursor:pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 16px;
+	color: #003366;
+	cursor:pointer;
+	text-decoration:none;
+}
+.left_div a:hover{
+	text-decoration:none;
+	color:red;
+	margin-right:15px;
+	cursor:pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 16px;
+	cursor:pointer;
+}
+.right{
+	float:left;
+	z-index:9;
+	width:50%;
+	position:absolute;
+	top:41px;
+}
+.right_content{
+	width:400px;
+	height:350px;
+	position:relative;
+	z-index:99;
+}
+.left_txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 25px;
+	color: #666666;
+}
+.left_txt p{
+	margin:15px;
+}
+.login_txt_bt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	line-height: 25px;
+	color: #666666;
+	font-weight: bold;
+}
+.login_txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 25px;
+	color: #333333;
+}
+.Submit {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #629DAE;
+	text-decoration: none;
+	background-image: url(../images/Submit_bg.gif);
+	width:100px;
+	cursor:pointer;
+	background-repeat: repeat-x;
+}
+
+.login_bg {
+	background-image: url(../images/login_bg.jpg);
+	background-repeat: repeat-x;
+}
+.login_bg2 {
+	background-image: url(../images/login-content-bg.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+.editbox{
+	height:18px;
+	width:160px;
+}
+.notice {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 16px;
+	color: #666666;
+	margin-top:10px;
+}
+
+/**仿win8动画效果  start*/
+#place { position: relative; width: 100%; height: 350px; margin: 0px; z-index:9;}
+#wrapper1, #wrapper2{ width:400px; height: 350px; position: absolute; top: 80px; }
+#wrapper1 { left: 0px;}
+.button2to1 {cursor: pointer;position: absolute;width: 30px;height: 30px;top: 81px;z-index:99999;background: url(../images/arrow-back-hover.png) center center; display: none;}
+.button2to1_hover{cursor: pointer; background: url(../images/arrow-back.png) center center;}
+/**仿win8动画效果   end*/
+
+
+/**密码强度    start */
+.is0{background:url(../images/progressImg1.png) no-repeat 0 0;width:138px;height:7px;}
+.is10{background-position:0 -7px;}
+.is20{background-position:0 -14px;}
+.is30{background-position:0 -21px;}
+.is40{background-position:0 -28px;}
+.is50{background-position:0 -35px;}
+.is60{background-position:0 -42px;}
+.is70{background-position:0 -49px;}
+.is80{background-position:0 -56px;}
+.is90{background-position:0 -63px;}
+.is100{background-position:0 -70px;}
+#getPassword{
+	width:880px;
+	height:440px;
+	position:absolute;
+	z-index:9999999;
+	display:none;
+	box-shadow:10px 15px 20px rgba(85,85,85,0.3);
+}
+.getPassword_left{
+    height:29px;
+    width:10px;
+    float:left;
+    left:0px;
+    background:url(../images/left-top-right.gif);
+}
+.getPassword_right{	
+    height:29px;
+    width:8px;
+    float:left;
+    background:url(../images/nav-right-bg.gif);  
+}
+.getPassword_close{
+	height:16px;
+    width:16px;
+	float:right;
+	right:5px;
+    position:absolute;
+    top:8px;
+    cursor:pointer;
+    background:url(../images/delete.gif)  top no-repeat;  
+}
+.getPassword_close_hover{
+    background:url(../images/delete.gif)  bottom no-repeat;   
+}
+.getPassword_title{
+	line-height:31px;
+	color:#333;
+	font-size: 14px;
+	font-weight:600;
+	width:862px;
+	float:left;
+	background:url(../images/content-bg.gif) repeat-x;  
+	font-family: Arial, Helvetica, sans-serif;
+}
+#getPassword_content{
+	border-left:1px #abb8c4 solid;
+	border-right:1px #abb8c4 solid;
+	border-bottom:1px #abb8c4 solid;
+	background:#fff;
+	width:880px;
+	height:420px;
+	position:relative;
+	top:-2px;
+	background:url(../images/getPWBg.gif) #fff;
+	clear:both;
+}
+#getPassword_notice{
+	width:400px;
+	margin-left:10px;
+	position:relative;
+	top:20px;
+}
+#getPassword_form{
+	width:600px;
+	height:408px;
+	margin:auto auto;
+}
+.login_txt_getPW{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	line-height: 25px;
+}
+.editbox_getPW{
+	height:22px;
+	width:180px;
+	font-size:16px;
+}
+.questionValidatebtn{
+	cursor:pointer;
+	position:relative;
+	top:-1px;
+	margin-left:4px;
+	background:url(../images/Login_but.gif) bottom no-repeat;
+	width:62px;
+	height:22px;
+	border:none;
+}
+.questionValidatebtn:hover{
+	background:url(../images/Login_but.gif) bottom no-repeat;
+}
+/**密码找回   end*/

@@ -4,9 +4,9 @@ import org.apache.log4j.Logger;
 
 import com.lj.mvn_ssh.dao.BasicDaoI;
 import com.lj.mvn_ssh.pojo.Tuser;
-import com.lj.mvn_ssh.service.TestService;
+import com.lj.mvn_ssh.service.TestServiceI;
 
-public class TestServiceImpl implements TestService{
+public class TestServiceImpl implements TestServiceI{
 
 	private static final Logger logger = Logger.getLogger(TestServiceImpl.class);
 	

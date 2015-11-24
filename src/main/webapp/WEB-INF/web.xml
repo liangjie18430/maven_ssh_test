@@ -7,10 +7,16 @@
     <filter-class>
   		org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
   	</filter-class>
+  	<!--  修改配置文件位置时，必须将struts-default.xml加上-->
+  	<!-- 当struts.xml文件配置正确时，却找不到action，可以查看console信息，查看struts.xml是否加载上 -->
+  	  <init-param>  
+        <param-name>config</param-name>  
+        <param-value>struts-default.xml,struts-plugin.xml,struts2/struts.xml</param-value>  
+    </init-param>  
   </filter>
   <filter-mapping>
     <filter-name>struts2</filter-name>
-    <url-pattern>*.action</url-pattern>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
   <!-- 下边为配置spring -->
   

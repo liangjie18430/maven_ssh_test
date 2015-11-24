@@ -14,7 +14,7 @@ public class TestSpring {
 	@Test
 	    public void test() {  
 	        ApplicationContext ac = new ClassPathXmlApplicationContext(new String[] { "classpath:spring/applicationContext.xml" });  
-	        TestService userService = (TestServiceImpl) ac.getBean("testService"); 
+	        TestServiceI userService = (TestServiceImpl) ac.getBean("testService"); 
 	        Student st = new Student();
 	        //st.setId(UUID.randomUUID().toString());
 	        /*st.setName("test2");
